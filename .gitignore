@@ -1,0 +1,12 @@
+# Whitelist: only my own scripts, figures and the README are tracked.
+# The GPML toolbox and the course data files are intentionally excluded.
+/*
+!/.gitignore
+!/README.md
+!/Figures/
+
+!/gpml-matlab-master/
+/gpml-matlab-master/*
+!/gpml-matlab-master/Question_*.m
+
+*:Zone.Identifier
