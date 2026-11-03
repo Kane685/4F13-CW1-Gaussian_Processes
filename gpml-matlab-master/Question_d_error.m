@@ -11,12 +11,12 @@ hyp.cov = [-0.5 0 0 2 0];   % [log ell_p, log p, log sf_p, log ell_se, log sf_se
 % Get covariance matrix
 K = feval(covfunc{:}, hyp.cov, x);
 
-% Get Cholesky factor (jitter added for numerical stability)
-L = chol(K)';
+% Get Cholesky factor (no jitter: expected to fail)
+R = chol(K);
 
 % Generate noise-free sample functions
 nsamples = 5;
-f = L * randn(200, nsamples);
+f = R' * randn(200, nsamples);
 
 % Plot
 plot(x, f);

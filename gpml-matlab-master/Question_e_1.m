@@ -1,7 +1,7 @@
 % Load predefined functions
 run('gpml-matlab-master/startup.m');
 
-% Load x and y and reshape
+% Load x and y
 load('cw1e.mat');
 
 % Specify the mean, covariance and likelihood functions
@@ -24,10 +24,10 @@ fprintf('neg log marginal likelihood = %.4f\n', nlml);
 % Decompose nlml = data fit + complexity penalty + constant
 n  = size(x, 1);
 Ky = feval(covfunc, hyp2.cov, x) + exp(2*hyp2.lik)*eye(n);
-Lk = chol(Ky)';
-alpha = Lk' \ (Lk \ y);
+R = chol(Ky);
+alpha = R \ (R' \ y);
 datafit    = 0.5 * y' * alpha;               % 0.5 * y' K^-1 y
-complexity = sum(log(diag(Lk)));             % 0.5 * log|K|
+complexity = sum(log(diag(R)));             % 0.5 * log|K|
 constant   = 0.5 * n * log(2*pi);
 fprintf('data fit term   = %.4f\n', datafit);
 fprintf('complexity term = %.4f\n', complexity);
