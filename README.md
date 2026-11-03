@@ -52,6 +52,7 @@ The scripts were written and tested with GNU Octave 8.4. They should also run in
 | (b) Fits at the different local optima | `Figures/question_b_fits.png` |
 | (c) covPeriodic fit | `Figures/question_c.png` |
 | (d) Samples from the product-kernel prior | `Figures/question_d.png` |
+| (d) The same samples plotted separately | `Figures/question_d_samples.png` |
 | (e) cw1e training data | `Figures/question_e_data.png` |
 | (e) Model 1 (covSEard) predictive mean | `Figures/question_e_1_mean.png` |
 | (e) Model 2 (covSEard + covSEard) predictive mean | `Figures/question_e_2_mean.png` |
